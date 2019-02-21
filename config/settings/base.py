@@ -38,8 +38,9 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
+
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://localhost/kbspre'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres:6626@localhost:5432/postgres'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -63,15 +64,15 @@ DJANGO_APPS = [
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
-    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_framework',
+    'rest_framework'           #REST framework
 ]
 LOCAL_APPS = [
     'kbspre.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
+    'kbspre.images.apps.ImagesConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
